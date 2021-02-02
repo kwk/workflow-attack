@@ -1,0 +1,15 @@
+name: Inject Comment
+
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  release-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inject comment in bash Bash
+        run: |
+          test "${{ github.event.comment.body }}" = "Gandalf"
+          echo "You shall not pass!"
